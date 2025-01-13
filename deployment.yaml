@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend 
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: huangjingl/pokedex-back  # 替换为你的后端镜像名和标签
+        ports:
+        - containerPort: 3000  # 假设后端服务在 8080 端口
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: huangjingl/pokedex-front  # 替换为你的前端镜像名和标签
+        ports:
+        - containerPort: 3000  # 假设前端服务在 80 端口
