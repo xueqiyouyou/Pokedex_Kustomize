@@ -38,4 +38,4 @@ spec:
       - name: frontend
         image: huangjingl/pokedex-front 
         ports:
-        - containerPort: 3000  
+        - containerPort: 8080  
